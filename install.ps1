@@ -1,15 +1,15 @@
 <#
 .SYNOPSIS
-  Installs OpenCode + Oh My OpenCode dotfiles to %APPDATA%\opencode
+  Installs OpenCode + Oh My OpenCode dotfiles to ~/.config/opencode
 .DESCRIPTION
   Copies configuration files from this repo's opencode/ directory
-  to the OpenCode config directory at $env:APPDATA\opencode.
+  to the OpenCode config directory at $env:USERPROFILE\.config\opencode.
 #>
 
 $ErrorActionPreference = "Stop"
 
 $sourceDir = Join-Path $PSScriptRoot "opencode"
-$targetDir = "$env:APPDATA\opencode"
+$targetDir = "$env:USERPROFILE\.config\opencode"
 
 # --- Create target directory if needed ---
 Write-Host "==> Ensuring target directory exists..." -ForegroundColor Cyan
@@ -21,7 +21,7 @@ if (-not (Test-Path -LiteralPath $targetDir)) {
 }
 
 # --- Copy config files ---
-$files = @("opencode.jsonc", "oh-my-openagent.json", "tui.json")
+$files = @("opencode.jsonc", "oh-my-openagent.json", "tui.json", "package.json")
 
 Write-Host "`n==> Copying configuration files..." -ForegroundColor Cyan
 foreach ($file in $files) {
@@ -34,6 +34,15 @@ foreach ($file in $files) {
     } else {
         Write-Warning "    Source file not found: $src"
     }
+}
+
+Write-Host "`n==> Installing dependencies..." -ForegroundColor Cyan
+Push-Location -LiteralPath $targetDir
+try {
+    npm install --silent
+    Write-Host "    Dependencies installed" -ForegroundColor Green
+} finally {
+    Pop-Location
 }
 
 Write-Host "`n==> Done! OpenCode configuration has been installed." -ForegroundColor Cyan
