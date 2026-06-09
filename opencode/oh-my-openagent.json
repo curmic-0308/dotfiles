@@ -23,13 +23,13 @@
       ]
     },
     "explore": {
-      "model": "opencode-go/qwen3.5-plus",
+      "model": "opencode-go/qwen3.7-plus",
       "fallback_models": [
         "opencode-go/minimax-m2.7"
       ]
     },
     "librarian": {
-      "model": "opencode-go/qwen3.5-plus",
+      "model": "opencode-go/qwen3.7-plus",
       "fallback_models": [
         "opencode-go/minimax-m2.7"
       ]
@@ -64,7 +64,7 @@
       "model": "deepseek/deepseek-v4-pro"
     },
     "writing": {
-      "model": "opencode-go/qwen3.5-plus",
+      "model": "opencode-go/qwen3.7-plus",
       "fallback_models": [
         "opencode-go/minimax-m2.7"
       ]
