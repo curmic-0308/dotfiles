@@ -1,5 +1,5 @@
 ---
-model: opencode-go/kimi-k2.7-code
+model: moonshotai/kimi-k2.7-code
 description: "Valuta piccole modifiche e le implementa subito tramite @builder, senza piano scritto"
 mode: primary
 ---

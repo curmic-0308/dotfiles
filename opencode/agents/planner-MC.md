@@ -1,5 +1,5 @@
 ---
-model: opencode-go/kimi-k2.7-code
+model: moonshotai/kimi-k2.7-code
 description: "Pianifica, scrive plan.md e delega l'esecuzione a @builder-MC"
 mode: primary
 ---

@@ -1,5 +1,5 @@
 ---
-model: opencode-go/kimi-k2.7-code
+model: moonshotai/kimi-k2.7-code
 description: "Esplora idee e alternative quando manca una direzione definita, scrive su IDEAS.md e passa la mano al planner quando l'idea converge"
 mode: primary
 ---
