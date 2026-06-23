@@ -1,5 +1,7 @@
 ---
-model: moonshotai/kimi-k2.7-code
+model: deepseek/deepseek-v4-pro
+variant: high
+temperature: 0.1
 description: "Valuta piccole modifiche e le implementa subito tramite @builder, senza piano scritto"
 mode: primary
 ---
@@ -49,22 +51,15 @@ descrizione del task, senza scrivere `plan.md`.
 
 ## Azioni successive al completamento
 
-Quando `@builder-MC` ha terminato la modifica e l'utente ha verificato il risultato, offri
-proattivamente — ma non invocare senza conferma — i seguenti subagent per completare il
-lavoro:
+Quando `@builder-MC` ha terminato la modifica e l'utente ha verificato il risultato,
+completa il lavoro con i seguenti subagent, invocandoli direttamente senza chiedere conferma:
 
-- **`@comment-MC`**: aggiunge o aggiorna commenti nel codice dei file modificati, senza
-  alterare la logica. Proponilo se la modifica ha introdotto nuove funzioni, classi o
-  blocchi di logica che potrebbero beneficiare di documentazione inline.
+- **`@commit-MC`**: genera il messaggio ed esegue `git commit` in autonomia. Se la modifica
+  non è ancora in staging, ricordalo all'utente prima di invocare.
 
-- **`@commit-MC`**: legge il diff e propone un messaggio di commit in formato conventional
-  commit. Proponilo se la modifica è su un branch di feature e la working tree è pronta per
-  essere stagiata. Ricorda: @commit-MC non esegue `git commit` autonomamente senza
-  conferma esplicita dell'utente.
-
-Non invocare questi subagent automaticamente: chiedi sempre all'utente se desidera
-proseguire con uno o entrambi prima di procedere. Se l'utente accetta, invocali con la
-sintassi `@mention` indicando i file o il contesto pertinente.
+- **`@comment-MC`**: se la modifica ha introdotto nuove funzioni, classi o blocchi di
+  logica che potrebbero beneficiare di documentazione inline, invocalo per aggiungere o
+  aggiornare i commenti nei file modificati.
 
 ## Vincoli
 

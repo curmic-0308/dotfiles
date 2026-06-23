@@ -1,5 +1,7 @@
 ---
 model: deepseek/deepseek-v4-pro
+variant: medium
+temperature: 0.4
 description: "Esegue un singolo task dal piano, poi si ferma"
 mode: subagent
 ---

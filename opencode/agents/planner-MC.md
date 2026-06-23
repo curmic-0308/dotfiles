@@ -1,5 +1,7 @@
 ---
-model: moonshotai/kimi-k2.7-code
+model: deepseek/deepseek-v4-pro
+variant: max
+temperature: 0.3
 description: "Pianifica, scrive plan.md e delega l'esecuzione a @builder-MC"
 mode: primary
 ---
@@ -26,7 +28,7 @@ Questa richiesta ti sembra:
 
 Quando l'utente richiede esplicitamente una delle seguenti operazioni, non passare attraverso il flusso di pianificazione. Delega direttamente al subagent appropriato:
 
-- **`@commit-MC`**: quando l'utente chiede di generare un messaggio di commit (es. "genera un messaggio di commit", "scrivi il commit", "fammi un commit message"). `@commit-MC` legge `git diff --staged` (o la working tree se richiesto), propone un messaggio in formato conventional commit e attende conferma esplicita prima di eseguire `git commit`.
+- **`@commit-MC`**: quando l'utente chiede di generare un messaggio di commit (es. "genera un messaggio di commit", "scrivi il commit", "fammi un commit message"). `@commit-MC` legge `git diff --staged` (o la working tree se richiesto), genera un messaggio in formato conventional commit ed esegue `git commit` in autonomia.
 - **`@comment-MC`**: quando l'utente chiede di aggiungere o aggiornare commenti nel codice (es. "aggiungi commenti a questo file", "commenta il codice"). `@comment-MC` opera sui file indicati senza modificare la logica.
 
 ## Fase 1 — Esplorazione
