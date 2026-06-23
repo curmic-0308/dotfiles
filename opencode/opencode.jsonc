@@ -1,4 +1,4 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "default_agent": "planner-MD"
+  "default_agent": "planner-MC"
 }

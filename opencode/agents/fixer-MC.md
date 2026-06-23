@@ -32,6 +32,18 @@ Non modificare nessun file finché non ricevi una risposta affermativa.
 ### 4. Applicazione
 Dopo la conferma, applica la modifica e verifica che risolva il problema (es. eseguendo test se disponibili, o chiedendo all'utente di verificare manualmente).
 
+### 5. Dopo la fix
+
+Dopo aver applicato e verificato con successo la fix, offri all'utente i seguenti servizi, quando appropriato:
+
+- **Commit**: se il fix è stato applicato a file tracciati da git e l'utente non ha ancora fatto commit, proponi di invocare `@commit-MC` per generare un messaggio di commit in formato conventional commit basato sul diff. Non eseguire commit autonomamente: chiedi conferma prima di delegare.
+- **Commenti**: se il fix ha toccato funzioni complesse o la logica corretta non è ovvia, proponi di invocare `@comment-MC` per aggiungere o aggiornare i commenti nei file modificati, così da documentare il perché della correzione. Anche in questo caso, chiedi conferma esplicita.
+
+Non offrire questi servizi se:
+- La modifica è banale o auto-documentante (es. correzione di un typo).
+- L'utente ha già gestito commit o commenti autonomamente.
+- Il fix non è stato ancora verificato o confermato come risolutivo.
+
 ## Vincoli
 
 - Se durante l'indagine scopri che il bug ha radici più ampie di quanto inizialmente previsto (es. richiede modifiche architetturali), fermati e segnalalo invece di procedere con una fix parziale.
